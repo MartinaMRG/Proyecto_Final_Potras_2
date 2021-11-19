@@ -2,16 +2,17 @@
 
 class Simplex{
 	//variables de instancia
-	int NumVariables,ValFuncion;
+	int NumVariables,ValFuncion,valRestriccion;
 	String variable;
 	
 	//constructor
-	Simplex (int NumVariables, String variable, int ValFuncion)
+	Simplex (int NumVariables, String variable, int ValFuncion,int valRestriccion)
 	{
 		//asigna this.variable de instancias
 		this.NumVariables = NumVariables;
 		this.variable = variable;
 		this.ValFuncion = ValFuncion;
+		this.valRestriccion = valRestriccion;
 	}
 	//muestra los datos
 	public void muestradatos()
@@ -19,6 +20,7 @@ class Simplex{
 		System.out.println("Numero de Variables:"+NumVariables);
 		System.out.println("Variable:" +variable);
 		System.out.println("Valor:" +ValFuncion);
+		System.out.println("Restriccion:"+valRestriccion);
 	}
 	//metodo set
 	public void setvariable(String variable)
@@ -33,6 +35,10 @@ class Simplex{
 	{
 		this.ValFuncion = ValFuncion;
 	}
+	public void setvalRestriccion(int valRestriccion)
+	{
+		this.valRestriccion = valRestriccion;
+	}
 	//metodos get
 	public String getvariable()
 	{
@@ -45,6 +51,10 @@ class Simplex{
 	public int getValFuncion()
 	{
 		return(this.ValFuncion);
+	}
+	public int getvalRestriccion()
+	{
+		return(this.valRestriccion);
 	}
 	
 }
