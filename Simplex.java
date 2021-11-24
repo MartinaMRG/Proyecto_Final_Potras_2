@@ -1,60 +1,101 @@
-//objetos y clases
+/*objects and class */
 
 class Simplex{
-	//variables de instancia
-	int NumVariables,ValFuncion,valRestriccion;
+	//Instance variables
+	int numVariables,valFunction,valRestriction;
 	String variable;
 	
-	//constructor
-	Simplex (int NumVariables, String variable, int ValFuncion,int valRestriccion)
-	{
-		//asigna this.variable de instancias
-		this.NumVariables = NumVariables;
+	//Buildel
+	Simplex (int numVariables, String variable, int valFunction,int valRestriction)
+		//assgin the instance variables
+		{
+		this.numVariables = numVariables;
 		this.variable = variable;
-		this.ValFuncion = ValFuncion;
-		this.valRestriccion = valRestriccion;
-	}
-	//muestra los datos
-	public void muestradatos()
+		this.valFunction = valFunction;
+		this.valRestriction = valRestriction;
+	    }
+	//Show data
+	public void sampleData()
 	{
-		System.out.println("Numero de Variables:"+NumVariables);
+		System.out.println("Number of Variables:"+numVariables);
 		System.out.println("Variable:" +variable);
-		System.out.println("Valor:" +ValFuncion);
-		System.out.println("Restriccion:"+valRestriccion);
+		System.out.println("Value:" +valFunction);
+		System.out.println("Restriction:"+valRestriction);
 	}
-	//metodo set
+	//Set method
 	public void setvariable(String variable)
 	{
 		this.variable = variable;
 	}
-	public void setNumVariables(int NumVariables)
+	public void setnumVariables(int numVariables)
 	{
-		this.NumVariables = NumVariables;
+		this.numVariables = numVariables;
 	}
-	public void setValFuncion(int ValFuncion)
+	public void setvalFunction(int valFunction)
 	{
-		this.ValFuncion = ValFuncion;
+		this.valFunction = valFunction;
 	}
-	public void setvalRestriccion(int valRestriccion)
+	public void setvalRestriction(int valRestriction)
 	{
-		this.valRestriccion = valRestriccion;
+		this.valRestriction = valRestriction;
 	}
-	//metodos get
+	//get method
 	public String getvariable()
 	{
 		return(this.variable);
 	}
-	public int getNumVariables()
+	public int getnumVariables()
 	{
-		return(this.NumVariables);
+		return(this.numVariables);
 	}
-	public int getValFuncion()
+	public int getvalFunction()
 	{
-		return(this.ValFuncion);
+		return(this.valFunction);
 	}
-	public int getvalRestriccion()
+	public int getvalRestriction()
 	{
-		return(this.valRestriccion);
+		return(this.valRestriction);
 	}
 	
+}
+
+class Tabla{
+	int columns,rows,valueAt;
+
+	Tabla(int columns,int rows, int valueAt){
+		this.columns = columns;
+		this.rows = rows;
+		this.valueAt= valueAt;
+	}
+    public void sampleData1()
+	{
+		System.out.println("Number of columns:"+columns);
+		System.out.println("Number of rows:" +rows);
+		System.out.println("Number of variable:" +valueAt);
+	}
+	public void setcolumns(int columns)
+	{
+		this.columns = columns;
+	}
+	public void setrows(int rows)
+	{
+		this.rows = rows;
+	}
+	public void setvalueAt(int valueAt)
+	{
+		this.valueAt= valueAt;
+	}
+
+	public int getcolumns()
+	{
+		return(this.columns);
+	}
+	public int getrows()
+	{
+		return(this.rows);
+	}
+	public int getValueAt()
+	{
+		return(this.valueAt);
+	}
 }

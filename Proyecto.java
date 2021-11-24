@@ -1,76 +1,110 @@
-/**
+/*
  * @author: Blas Rosas Samuel
  * @author: Espinoza Vazquez Gabriela
- * @author: Hernández Estudillo Itzel Mitzi
+ * @author: Hernandez Estudillo Itzel Mitzi
  * @author: Nava Avalos Betzabe Malinali
  * @author: Ramírez Gamboa Martina Margarita
  * @author: Sánchez Guerrero Irvin Marino
 
- * @about: Realizacion del proyecto del metodo simplex
+ * @about: Realization of the simplex method project
  */
 
  import java.io.*;
  import java.util.*;
+ import com.sun.java.swing.table.*;
 
- class MetodoSimplex{
+ class simplexMethod{
      public static void main(String args[]) throws IOException{
-         //declarar el arreglo de los objetos
+         //declare the array of objects
 		 Simplex arraySimplex[] = new Simplex[10];
-         int NumVariables;
+         int numVariables;
 		 String variable;
-         int ValFuncion=0,valRestriccion=0;
+         int valFunction=0,valRestriction=0;
 		 int x=0, y=0;
-         String otravariable,otroF;
-         //preguntar cuantas variables se van a ocupar
-		 System.out.println("\tVARIABLES QUE SE OCUPARAN EN EL METODO SIMPLEX");
-		 NumVariables=MetodosIngresar.leeInt("Cuantas variables necesita:");
+         String anothervariable,otherF;
+         //ask how many variables are going to be occupied
+		 System.out.println("\tVARIABLES TO BE COVERED IN THE SIMPLEX METHOD");
+		 numVariables=methodsLogin.readInt("How many variables do you need:");
 		 
          do{
 		    
-            variable=MetodosIngresar.leeString("Variable:");
-            ValFuncion=MetodosIngresar.leeInt("Valor de Funcion:");
-            valRestriccion=MetodosIngresar.leeInt("Valor de Restriccion:");
-			//crear al objeto
-		    arraySimplex[x]=new Simplex (NumVariables,variable,ValFuncion,valRestriccion);
-			// cambiar al siguiente renglon 
+            variable=methodsLogin.readString("Variable:");
+            ValFunction=methodsLogin.readInt("Function Value:");
+            valRestriccion=methodsLogin.readInt("Restriction Value:");
+			//create the object
+		    arraySimplex[x]=new Simplex (NumVariables,variable,ValFunction,valRestriction);
+			// change to the next line
 		 x++;
-            otravariable=MetodosIngresar.leeString("Desea colocar otra variable S/N:");
+		 anothervariable=MethodsLogin.readString("You want to put another variable S/N:");
             
-	    }while(otravariable.equals("S")|| otravariable.equals("s"));
-		if(otravariable == otravariable)
+	    }while(anothervariable.equals("S")|| anothervariable.equals("s"));
+		if(anothervariable == x)
 		 {
-			 System.out.println("Variables completas");
+			 System.out.println("Complete variables");
 		 }
 		 else
 		 {
-			 System.out.println("Faltan variables");
+			 System.out.println("Variables are missing");
 		 }
          
-        //preguntar los valores para la funcion objetivo y imprimir
-		 System.out.println("METODO SIMPLEX");
-		 System.out.println("Numero de variables:" +NumVariables);
-         System.out.println("Variables\tValores Funcion\tValor de Restriccion");
+        //ask the values for the target function and print
+		 System.out.println("SIMPLEX METHOD");
+		 System.out.println("Number of variables:" +numVariables);
+         System.out.println("Variables\tValues Function\tValue of Constraint");
 		 for(y=0; y<x; y++)
 	   {
 			System.out.println(arraySimplex[y].getvariable()+"\t\t"+
-                               arraySimplex[y].getValFuncion()+"\t\t"+
-							   arraySimplex[y].getvalRestriccion());
+                               arraySimplex[y].getvalFunction()+"\t\t"+
+							   arraySimplex[y].getvalRestriction());
 	   }
-	   System.out.println("METODO EN FORMA ESTANDAR");
-	   System.out.println("Numero de variables:" +NumVariables);
-       System.out.println("Variables\tValores Funcion\tValor de Restriccion");
+	   System.out.println("METHOD IN STANDARD SHAPE");
+	   System.out.println("Number of variables:" +numVariables);
+       System.out.println("Variables\tValues Function\tValue of Constraint");
 	   for(y=0; y<x; y++)
 	   {
 			System.out.println(arraySimplex[y].getvariable()+"\t\t"+
-                               " - "+arraySimplex[y].getValFuncion()+"\t\t"+
-							   arraySimplex[y].getvalRestriccion());
+                               " - "+arraySimplex[y].getvalFunction()+"\t\t"+
+							   arraySimplex[y].getvalRestriction());
 	   }
-	   for(x=0; x<=variable; x++){
-         for(y=0; y<=variable; y++){
-             d.b[x][y]=in.nextInt();
-             if(d.b[x][y]==0)
-             d.b[x][y]=500;
-         }
-     }
-     }
- }
+	   
+    }
+           
+}
+
+class data{
+    int i,j,rows,columns;
+	int variable,valFuntion,valRestriction,numVariables;
+	object data[][]={
+	 {
+		 this.arraySimplex[y].getvariable,
+		 this.arraySimplex[y].getvalFunction,
+		 this.arraySimplex[y].getvalRestriction,
+		 this.arraySimplex[y].getnumVariables
+	 }
+	int i, j;
+	 for(i=0; i<data; i++){
+		 for(j=0; j<data[0].length; j++){
+		 System.out.println(data[i][j] + " ");
+		 System.out.println();
+		 }
+		// Returns the number of columns
+		  public int getColumns() { 
+		   return( data[0].length ); 
+		  } 
+		  //returns number of rows
+		  public int getRows() { 
+			return( data.length );
+		  }
+        
+		  public Object getValueAt( int rows,int columns ) { 
+			return( data[rows][columns] ); 
+
+			public void setvalueAt(Object values,int columns,int rows){
+				data[columns][rows]=values;
+				Tabla();
+			}
+
+
+	}
+}		 
+     
