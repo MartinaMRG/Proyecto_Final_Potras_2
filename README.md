@@ -6,9 +6,8 @@ Members:
 - Hernandez Estudillo Itzel Mitzi.
 - Nava Avalos Betzabe Malinali
 - Ramírez Gamboa Martina Margarita
-- 
+- Sánchez Guerrero Irvin Marino
 
-Sánchez Guerrero Irvin Marino
 Meetings:
 
 Every day who can - mandatory.
