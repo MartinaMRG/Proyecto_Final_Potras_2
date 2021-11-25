@@ -1,11 +1,11 @@
-/*
+/**
  * @author: Blas Rosas Samuel
  * @author: Espinoza Vazquez Gabriela
  * @author: Hernandez Estudillo Itzel Mitzi
  * @author: Nava Avalos Betzabe Malinali
  * @author: Ramírez Gamboa Martina Margarita
  * @author: Sánchez Guerrero Irvin Marino
-
+ *
  * @about: Realization of the simplex method project
  */
 
@@ -22,6 +22,121 @@
          int valFunction=0,valRestriction=0;
 		 int x=0, y=0;
          String anothervariable,otherF;
+
+		 String menu[]={"Pasos del método simplex:",
+                         "1) Tutorial del método simplex",
+                         "2) Agregar valores para el Modelo matematico",
+                         "3) Mostrar Modelo matemático",
+                         "4) Mostrar Modelo Estándar",
+                         "5) Mostrar Tabla Simplex",
+                         "6) Resultados"};
+         do{
+             opc=0;
+			while (opc <=0 || opc>menu.length-1)
+			{
+				Metodos.cls();
+				MetodosIngresar.muestraMenu(menu);
+		        opc=MetodosIngresar.leeInt("\tSeleccione una opcion:");
+		    }
+            switch(opc)
+		    {
+                case 1:
+                Metodos.cls();
+				System.out.println("\t"+menu[1]);
+                System.out.println("As a first pass, the mathematical model must be carried out");
+                System.out.println("The next steps are:
+                                   1.- Read carefully the problem you want to do.
+                                   2.- Know if it should be maximized or minimized
+                                   3.- Start with the solution of the problem
+                                   4.- Find the variables
+                                   5.- Create the objective function with the data of the problem to be solved
+                                   6.- Create the restrictions with the data that the problem gives us.
+                                   7.- Determine if the problem ends in 0");
+
+                System.out.println("To carry out the first step is simple, 
+                                   you just have to read carefully and attentively 
+                                   the text of the problem you want to solve.");  
+
+                System.out.println("In order to know if the problem should be maximized or minimized, 
+                                  you can find it in writing or knowing if the person wants to decrease or 
+                                  increase something.");
+
+                System.out.println("Once you have already found what is required of the problem and have found 
+                                    what you want to fix and get the correct results, a solution is given.");
+
+                System.out.println("Now you start with the variables, you place the number of variables and of 
+                                   course you can place the name of the variables to know who you represent within 
+                                   the problem to solve.");
+
+                System.out.println("Then the objective function is created, which is represented by the number 
+                                   of variables that have just been found, since this quantity represents the exact 
+                                   number of what each of the represented variables is equivalent.");
+
+                System.out.println("Then comes the reconstruction of the restrictions and they are also the ones that 
+                                   were found when reading the text of the problem but in these it is important to know that 
+                                   we can mix one type of solution with another, for example:
+ 
+                                   If the problem asks for amounts of pesos and others ask for dollar amounts, they can be solved 
+                                   together since they can only be solved when the types of pesos are the same.");   
+
+                System.out.println("And finally, you must realize if the problem has a solution or not.
+
+                                   When a problem does have a solution, all the variables belong to the cinjjoint of Z.");
+
+                System.out.println("Finally the mathematical model is finished.");   
+
+                System.out.println("Now the realization of the model in standard form will be explained.")  
+
+                System.out.println("To begin with the construction of the model in standard form, the following steps 
+                                    must be followed:
+
+                                    1.- Have the mathematical model finished
+                                    2.- Place the variables again
+                                    3.- Place the function again with negative values
+                                    4.- Pass the restrictions to equalities
+                                    5.- The realization of the simplex table that is presented by some necessary points.");
+
+                System.out.println("To start with the standard model it is necessary to have the original mathematical model");
+
+                System.out.println("To replace the variables, they must be called with exactly the same name as the original mathematical model.");
+
+                System.out.println("For the placement of the objective function the quantities and variables with them but in 
+                                   this step it changes since if in the original mathematical model they are positive values, 
+                                   now in the standard they become negative values to be able to make the tables.");
+
+                System.out.println("Then the realization of the equalities restrictions is done in the final result of each one of them.");
+
+                System.out.println("Step 1: Now the simplex table will be carried out as a first step and it is built with the values of the constraints 
+                                   and the objective function that it represents Z.");
+
+                System.out.println("Step 2: After having the simplex table comes step 2 and what it does is that the input column of the table 
+                                    must be identified.");
+
+                System.out.println("Step 3: You must identify the private value and in order to find the private value you must divide the solution 
+                                    column between the input column and identify which is the smallest positive value.");
+
+                System.out.println("Pass 4: The private value must be 1 and to do that, a division must be made between the input column by 
+                                    the private value");
+
+                System.out.println("Step 5: The different values of the private must be made 0 and in order to make the value 0, 
+                                   the inverse of the interest values must be multiplied by the line of the private and then add 
+                                   the product plus the line of interest.");
+
+                System.out.println("Step 6: The simplex table must be updated with the data that we have just taken or obtained.");
+
+                System.out.println("Once the new table is filled with the new values and if there are still negative values in row Z, 
+                                   then the entire procedure must be carried out once more from step 2 until finally the row Z no 
+                                   longer has any more. negative values, since once it no longer has negative values, it means that 
+                                   finally the standard model ends and we obtain the values of each of the variables that we obtained.");                                                                                                 
+                
+                System.out.println("End of Standard model.");
+                Metodo.pausa();
+                break;
+
+                case 2:
+                Metodos.cls();
+				System.out.println("\t"+menu[2]);
+
          //ask how many variables are going to be occupied
 		 System.out.println("\tVARIABLES TO BE COVERED IN THE SIMPLEX METHOD");
 		 numVariables=methodsLogin.readInt("How many variables do you need:");
@@ -72,7 +187,7 @@
 }
 
 class data{
-    int i,j,rows,columns;
+    int rows,columns;
 	int variable,valFuntion,valRestriction,numVariables;
 	object data[][]={
 	 {
@@ -89,7 +204,7 @@ class data{
 		 }
 		// Returns the number of columns
 		  public int getColumns() { 
-		   return( data[0].length ); 
+		   return( data[0].length );
 		  } 
 		  //returns number of rows
 		  public int getRows() { 
