@@ -1,7 +1,8 @@
 # My final project
 Members:
 
-Blas Rosas Samuel.
+- Blas Rosas Samuel.
+
 Espinoza Vázquez Gabriela.
 Hernandez Estudillo Itzel Mitzi
 Nava Avalos Betzabe Malinali
