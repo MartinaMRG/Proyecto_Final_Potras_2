@@ -10,4 +10,4 @@ Members:
 
 Meetings:
 
-Every day who can - mandatory.
+Every day who can - Mandatory.
