@@ -8,12 +8,10 @@
  * @about: Realization of the simplex method project
  */
 
- import java.io.*;
+import java.io.*;
 import java.sql.DatabaseMetaData;
 import java.util.*;
-
 import javax.swing.text.html.AccessibleHTML.TableElementInfo.TableAccessibleContext;
-
 import com.sun.java.swing.table.*;
 
  class simplexMethod{

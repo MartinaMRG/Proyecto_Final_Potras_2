@@ -1,5 +1,5 @@
 import java.io.*;
-class MethodsLogin {   
+class methodsLogin{   
     
 	private static BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
      
