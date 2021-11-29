@@ -6,7 +6,6 @@ class methodsLogin{
 	 public static void muestraMenu(String myArray[])
     {
 		int x, opc;
-		
 		System.out.println( "\t\t" + myArray[0] );
 		for(x=1 ; x <myArray.length ; x++ )
 		{

@@ -1,5 +1,5 @@
 import java.io.*;
-class Metodos{
+class methods{
 
 public static void showArray(String myArray[])
 {
