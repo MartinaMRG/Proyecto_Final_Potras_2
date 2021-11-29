@@ -1,5 +1,4 @@
 /**
- * @author: Blas Rosas Samuel
  * @author: Espinoza Vazquez Gabriela
  * @author: Hernandez Estudillo Itzel Mitzi
  * @author: Nava Avalos Betzabe Malinali
@@ -10,8 +9,12 @@
  */
 
  import java.io.*;
- import java.util.*;
- import com.sun.java.swing.table.*;
+import java.sql.DatabaseMetaData;
+import java.util.*;
+
+import javax.swing.text.html.AccessibleHTML.TableElementInfo.TableAccessibleContext;
+
+import com.sun.java.swing.table.*;
 
  class simplexMethod{
      public static void main(String args[]) throws IOException{
@@ -23,26 +26,27 @@
 		 int x=0, y=0;
          String anothervariable,otherF;
 
-		 String menu[]={"Pasos del método simplex:",
-                         "1) Tutorial del método simplex",
-                         "2) Agregar valores para el Modelo matematico",
-                         "3) Mostrar Modelo matemático",
-                         "4) Mostrar Modelo Estándar",
-                         "5) Mostrar Tabla Simplex",
-                         "6) Resultados"};
+		 String menu[]={"**STEPS OF THE SIMPLEX METHOD**:",
+                         "1) Simplex method tutorial.",
+                         "2) Add values for the Mathematical Model.",
+                         "3) Show Mathematical Model.",
+                         "4) Show Standard Model.",
+                         "5) Show Simplex Table.",
+                         "6) Members' information."};
          do{
              opc=0;
 			while (opc <=0 || opc>menu.length-1)
 			{
 				Metodos.cls();
 				MetodosIngresar.muestraMenu(menu);
-		        opc=MetodosIngresar.leeInt("\tSeleccione una opcion:");
+		        opc=MetodosIngresar.leeInt("\tSelect an option: ");
 		    }
             switch(opc)
 		    {
                 case 1:
                 Metodos.cls();
 				System.out.println("\t"+menu[1]);
+                System.out.println("***STEPS OF THE SIMPLEX METHOD***");
                 System.out.println("As a first pass, the mathematical model must be carried out");
                 System.out.println("The next steps are:
                                    1.- Read carefully the problem you want to do.
@@ -138,33 +142,92 @@
 				System.out.println("\t"+menu[2]);
 
          //ask how many variables are going to be occupied
-		 System.out.println("\tVARIABLES TO BE COVERED IN THE SIMPLEX METHOD");
-		 numVariables=methodsLogin.readInt("How many variables do you need:");
+		 System.out.println("\t***VARIABLES TO BE COVERED IN THE SIMPLEX METHOD***");
+		 numVariables=methodsLogin.readInt("How many variables do you need: ");
+
+         //mostrar un mensaje si realiza mal el modelo matematico
+	if(numVariables == numVariables){
+		System.out.println("**Correct**");
+	  }
+	    else
+	    {
+		   System.out.println("Incorrect...");
+	    }
+	  
+	    if(valFunction == valFunction){
+		   System.out.println("**Correct**");
+	    }
+		else
+	    {
+		  System.out.println("Incorrect...");
+	    }
+	    if(valRestriction == valRestriction){
+		    System.out.println("**Correct**");
+	    }
+	    else
+	    {
+		    System.out.println("Incorrect...");
+	    }
+		
+		System.out.println("THE MATHEMATICAL MODEL IS INCORRECT...");
 		 
          do{
 		    
-            variable=methodsLogin.readString("Variable:");
-            ValFunction=methodsLogin.readInt("Function Value:");
-            valRestriccion=methodsLogin.readInt("Restriction Value:");
+            variable=methodsLogin.readString("Variable: ");
+            ValFunction=methodsLogin.readInt("Function Value: ");
+            valRestriccion=methodsLogin.readInt("Restriction Value: ");
 			//create the object
 		    arraySimplex[x]=new Simplex (NumVariables,variable,ValFunction,valRestriction);
 			// change to the next line
 		 x++;
-		 anothervariable=MethodsLogin.readString("You want to put another variable S/N:");
+		 anothervariable=methodsLogin.readString("You want to put another variable [Y/N]: ");
             
-	    }while(anothervariable.equals("S")|| anothervariable.equals("s"));
+	    }while(anothervariable.equals("y")|| anothervariable.equals("Y"));
 		if(anothervariable == x)
 		 {
-			 System.out.println("Complete variables");
+			 System.out.println("**Complete variables**");
 		 }
 		 else
 		 {
-			 System.out.println("Variables are missing");
+			 System.out.println("Variables are missing...");
 		 }
-         
+
+         case 3:
+         methods.cls();
+		System.out.println("\t"+menu[3]);
+
         //ask the values for the target function and print
-		 System.out.println("SIMPLEX METHOD");
-		 System.out.println("Number of variables:" +numVariables);
+        System.out.println("***SHOW THE MATH MODEL***");
+		 System.out.println("-SIMPLEX METHOD-");
+
+         //mostrar un mensaje si realiza mal el modelo matematico
+	if(numVariables == numVariables){
+		System.out.println("**Correct**");
+	  }
+	    else
+	    {
+		   System.out.println("Incorrect...");
+	    }
+	  
+	    if(valFunction == valFunction){
+		   System.out.println("**Correct**");
+	    }
+		else
+	    {
+		  System.out.println("Incorrect...");
+	    }
+	    if(valRestriction == valRestriction){
+		    System.out.println("**Correct**");
+	    }
+	    else
+	    {
+		    System.out.println("Incorrect...");
+	    }
+		
+		System.out.println("THE MATHEMATICAL MODEL IS INCORRECT...");
+
+
+		 System.out.println("Number of variables: " +numVariables);
          System.out.println("Variables\tValues Function\tValue of Constraint");
 		 for(y=0; y<x; y++)
 	   {
@@ -172,8 +235,14 @@
                                arraySimplex[y].getvalFunction()+"\t\t"+
 							   arraySimplex[y].getvalRestriction());
 	   }
-	   System.out.println("METHOD IN STANDARD SHAPE");
-	   System.out.println("Number of variables:" +numVariables);
+
+       case 4:
+       methods.cls();
+       System.out.println("\t"+menu[4]);
+
+       System.out.printl("***SHOW THE MODEL IN STANDARD FORM***");
+	   System.out.println("-METHOD IN STANDARD SHAPE-");
+	   System.out.println("Number of variables: " +numVariables);
        System.out.println("Variables\tValues Function\tValue of Constraint");
 	   for(y=0; y<x; y++)
 	   {
@@ -185,6 +254,12 @@
     }
            
 }
+
+  case 5:
+    methods.cls();
+    System.out.println("\t"+menu[4]);
+
+    System.out.println("***SIMPLEX TABLES***");
 
 class data{
     int rows,columns;
@@ -216,10 +291,138 @@ class data{
 
 			public void setvalueAt(Object values,int columns,int rows){
 				data[columns][rows]=values;
-				Tabla();
+				Table();
 			}
-
-
+        }
 	}
+
+    for ( int i=0; i<valRestriction; i++) {
+        for( int y=0; y<numVariables; y++) {
+            try{
+                data[i][y] = arraySimplex[y].getvalRestriction();
+            } catch ( Excepción e) {
+                data[i][y] = 0;
+            }
+        }
+        
+        if (arraySimplex[y].getvalRestriction()*a ! =  1 ){ //Objective Function
+            if (numVariables (arraySimplex[y].getDesigualdad()) ==  1 ){
+                data[i][b] = 1;
+                if ( arraySimplex[y].getDesigualdad() ==  0 ){
+                    data[0][b] = promlado;
+                    valorfila[i] =  1;
+                }
+                b + =  1;
+            
+        if (numVariables (arraySimplex[y].getDesigualdad()) ==  2 ){
+            data[i][b] =  - 1 ;
+                data[i][b +  1 ] = 1;
+                b + = 2;
+            }
+        }
+            
+        data[i][width - 2] = arraySimplex[y].getvalRestriction();	
+        data[i][width - 1] = arraySimplex[y].getvalRestriction().getpromlado();
+    }
+}
+
+//There are no negative values
+public  double  evidence(){
+    double negative =  true;
+    for ( int i = 0; i<data[0].length; i++) {
+        if(data [0][i]<0){
+            negative = false;
+            break;
+        }
+    }
+    return negative;
+}
+
+//Calcular valor privote
+public  int  ColumPivote(){
+    int index= 0;
+    double less = data[0][index];
+    
+    for (int i=0; i<data[0].length - 2; i++){
+        if (data[0][i]<=less && data[0][i]<0){
+            less = data[0][i];
+            index = i;
+        }
+    }
+    return index;
+}	
+
+//fila provote calcular
+public  int  rowsPrivote (int columPrivote){
+    double values[] = [valRestriction - 1];
+    int index[] = new int [valRestriction - 1];
+    int count= 0,value0;
+    for(int i = 0; i<valRestriction - 1; i++) {
+        if (data[i + 1 ][columPrivote] > 0 && data[i + 1][data[0].length - 2] ! = 0){
+
+            index[count] = i + 1;
+            value[count] = Match.abs(data[i + 1][data[0].arraySimplex[y].getlongitud - 2]/data[i + 1][columPrivote]);
+            msm (" " + double.setString(data[i + 1][data[0].length - 2]) + "/" + double.setString(data[i + 1][columPrivote]) + "=" + double.setString (value[count]));
+            count + = 1;
+        }
+    }
+    double less = value[0];
+    int rowPrivo = 1;
+    for(int i = 0; i<count; i++){
+        if (value [i] <= less && value [i] ! = 0){
+            less = value [i];
+            rowPrivo = index[i];
+        }
+    }
+    System.out.println( "The pivot row is:" + rowPrivo);
+    return rowPrivo;
+
+}
+
+case 6:
+Metodos.cls();
+System.out.println("\t"+menu[6]);  
+	System.out.printl("***TEAM MEMBERS***");
+	
+	  System.out.println("Members' names:");
+
+	  System.out.println("Espinoza Vazquez Gabriela");
+	  System.out.println("Emails:");
+	  System.out.println("gaby09_espinoza06@hotmail.com");
+	  System.out.println("gespinozav001@alumno.uaemex.mx");
+	  
+	  System.out.println("Hernandez Estudillo Itzel Mitzi");
+      System.out.println("Emails:");
+	  System.out.println("ihernandeze001@alumno.uaemex.mx");
+	  System.out.println("Kim.Jirin@hotmail.com");
+	  
+	  System.out.println("Ramírez Gamboa Martina Margarita");
+      System.out.println("Emails:");
+	  System.out.println("mar.magi845@gmail.com");
+	  System.out.println("mramirezg001@alumno.uaemex.mx");
+	  
+	  System.out.println("Sánchez Guerrero Irvin Marino");
+      System.out.println("Emails:");
+	  System.out.println("isanchezg001@alumno.uaemex.mx");
+	  System.out.println("Kim.Jirin@hotmail.com");
+	  
+	  System.out.println("Nava Avalos Betzabe Malinali");
+      System.out.println("Emails:");
+	  System.out.println("bnavaa001@alumno.uaemex.mx");
+	  System.out.println("betzaabby@gmail.com");
+	  
+	  System.out.println("Software version:");
+	  System.out.println("Language Support for Java(TM) by Red Hat");
+	  System.out.println("Version 1.0.0");
+	  
+	  System.out.println("Repository link:");
+	  System.out.println("https://github.com/MartinaMRG/Proyecto_Final_Potras_2");
+	  
+	  System.out.println("Start date:");
+	  System.out.println("November 9, 21");
+	  
+	  System.out.println("End Date:");
+	  System.out.println("November 30, 21");
+
 }		 
      

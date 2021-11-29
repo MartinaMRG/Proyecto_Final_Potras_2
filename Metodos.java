@@ -1,11 +1,9 @@
 import java.io.*;
 class Metodos{
 
-public static void muestraArray(String myArray[])
+public static void showArray(String myArray[])
 {
-	
 		int x;
-		
 		System.out.println( "\t\t" + myArray[0] );
 		for(x=1 ; x <myArray.length ; x++ )
 		{
@@ -14,7 +12,6 @@ public static void muestraArray(String myArray[])
 }
 
 public static void cls(){
-    
     try {
         if (System.getProperty("os.name").contains("Windows"))
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -30,7 +27,7 @@ public static void pausa()
         } 
         catch(InterruptedException e )
         { 
-          System.out.println("Pausa interrumpida"); 
+          System.out.println("Interrupted pause"); 
         }
 	}
 	

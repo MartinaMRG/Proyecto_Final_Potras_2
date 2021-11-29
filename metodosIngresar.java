@@ -1,7 +1,7 @@
 import java.io.*;
 class MethodsLogin {   
     
-	private static BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
+	private static BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
      
 	 public static void muestraMenu(String myArray[])
     {
@@ -14,54 +14,54 @@ class MethodsLogin {
 		}
     }
 	 
-    public static String leeString( String mensaje) throws IOException {
-       String cadena="";
-	   System.out.print(mensaje);
-       cadena = leer.readLine();
-       return (cadena);      
+    public static String readString( String message) throws IOException {
+       String chain = " ";
+	   System.out.print(message);
+       chain = read.readLine();
+       return (chain);      
     }
-	 public static int leeInt( String mensaje) throws IOException {
-       int numero=0;
-	   System.out.print(mensaje);
+	 public static int leeInt( String message) throws IOException {
+       int num=0;
+	   System.out.print(message);
 	   try{
-       numero = Integer.parseInt(leer.readLine());
+       num = Integer.parseInt(read.readLine());
 	   }
 	   catch(Exception e)
 	   {
-		   System.out.print("Debe ingresar un numero");
+		   System.out.print("You must enter a number...");
 	   }
-       return (numero);      
+       return (num);      
     }
 	
-	public static double leeDouble (String mensaje) throws IOException {
-		double numero=0;
+	public static double leeDouble (String message) throws IOException {
+		double numb=0;
 		int flagError=0;
 		while (flagError==0)
 		{
-			System.out.print(mensaje);
+			System.out.print(message);
 			try{
-				numero=Double.parseDouble(leer.readLine());
+				numb=Double.parseDouble(read.readLine());
 				flagError=1;
 			}
 			catch(Exception e)
 			{
-				System.out.print("Debe ingresar entero");
+				System.out.print("You must enter a whole number...");
 				flagError=0;
 			}
 		}
-		return(numero);
+		return(numb);
 	}
 	
-	public static double sumaint( double numUno, double numDos )
+	public static double sumint( double numOne, double numTwo )
 	{
-		return(numUno+numDos);
+		return(numOne+numTwo);
 	}
-	public static double divideDouble(double numUno, double numDos)
+	public static double divideDouble(double numOne, double numTwo)
 	{
-		return(numUno/numDos);
+		return(numOne/numTwo);
 	}
-	public static int multiplicaInt( int numUno,int numDos)
+	public static int multiplyInt( int numOne,int numTwo)
 	{
-		return(dolar * tipocambio);
+		return(numOne * numTwo);
 	}
 }
