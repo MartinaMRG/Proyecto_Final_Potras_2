@@ -448,7 +448,6 @@ System.out.println("\t"+menu[6]);
 
       System.out.println("Blas Rosas Samuel");
 	  System.out.println("Emails:");
-	  System.out.println("gaby09_espinoza06@hotmail.com");
 	  System.out.println("sblasr001@alumno.uaemex.mx");
 
 	  System.out.println("Espinoza Vazquez Gabriela");
@@ -469,7 +468,6 @@ System.out.println("\t"+menu[6]);
 	  System.out.println("Sánchez Guerrero Irvin Marino");
       System.out.println("Emails:");
 	  System.out.println("isanchezg001@alumno.uaemex.mx");
-	  System.out.println("Kim.Jirin@hotmail.com");
 	  
 	  System.out.println("Nava Avalos Betzabe Malinali");
       System.out.println("Emails:");
