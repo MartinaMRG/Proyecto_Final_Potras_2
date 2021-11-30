@@ -8,16 +8,17 @@
  *
  * @about: Realization of the simplex method project
  */
-
 import java.io.*;
-import java.sql.DatabaseMetaData;
+import java.sql.DatabaseMetaData.*;
 import java.util.*;
-import javax.swing.text.html.AccessibleHTML.TableElementInfo.TableAccessibleContext;
-import com.sun.java.swing.table.*;
+import java.swing.text.html.AccessibleHTML.TableElementInfo.TableAccessibleContext.*;
+import java.com.sun.java.swing.table.*;
 
  class simplexMethod{
      public static void main(String args[]) throws IOException{
-         //declare the array of objects
+         /**
+          * @about: declare the array of objects
+          */
 		 Simplex arraySimplex[] = new Simplex[10];
          int numVariables;
 		 String variable;
@@ -49,12 +50,12 @@ import com.sun.java.swing.table.*;
                 System.out.println("As a first pass, the mathematical model must be carried out");
                 System.out.println("The next steps are:
                                    1.- Read carefully the problem you want to do.
-                                   2.- Know if it should be maximized or minimized
-                                   3.- Start with the solution of the problem
-                                   4.- Find the variables
-                                   5.- Create the objective function with the data of the problem to be solved
+                                   2.- Know if it should be maximized or minimized.
+                                   3.- Start with the solution of the problem.
+                                   4.- Find the variables.
+                                   5.- Create the objective function with the data of the problem to be solved.
                                    6.- Create the restrictions with the data that the problem gives us.
-                                   7.- Determine if the problem ends in 0");
+                                   7.- Determine if the problem ends in 0.");
 
                 System.out.println("To carry out the first step is simple, 
                                    you just have to read carefully and attentively 
@@ -136,15 +137,15 @@ import com.sun.java.swing.table.*;
                 Metodo.pausa();
                 break;
 
-                case 2:
-                Metodos.cls();
-				System.out.println("\t"+menu[2]);
+    case 2:
+    Metodos.cls();
+	System.out.println("\t"+menu[2]);
 
-         //ask how many variables are going to be occupied
-		 System.out.println("\t***VARIABLES TO BE COVERED IN THE SIMPLEX METHOD***");
-		 numVariables=methodsLogin.readInt("How many variables do you need: ");
+    //ask how many variables are going to be occupied
+	System.out.println("\t***VARIABLES TO BE COVERED IN THE SIMPLEX METHOD***");
+	numVariables=methodsLogin.readInt("How many variables do you need: ");
 
-         //mostrar un mensaje si realiza mal el modelo matematico
+    //mostrar un mensaje si realiza mal el modelo matematico
 	if(numVariables == numVariables){
 		System.out.println("**Correct**");
 	  }
@@ -180,8 +181,8 @@ import com.sun.java.swing.table.*;
 			// change to the next line
 		 x++;
 		 anothervariable=methodsLogin.readString("You want to put another variable [Y/N]: ");
-            
-	    }while(anothervariable.equals("y")|| anothervariable.equals("Y"));
+	    }
+        while(anothervariable.equals("y")|| anothervariable.equals("Y"));
 		if(anothervariable == x)
 		 {
 			 System.out.println("**Complete variables**");
@@ -190,6 +191,7 @@ import com.sun.java.swing.table.*;
 		 {
 			 System.out.println("Variables are missing...");
 		 }
+         break;
 
          case 3:
          methods.cls();
@@ -224,8 +226,6 @@ import com.sun.java.swing.table.*;
 	    }
 		
 		System.out.println("THE MATHEMATICAL MODEL IS INCORRECT...");
-
-
 		 System.out.println("Number of variables: " +numVariables);
          System.out.println("Variables\tValues Function\tValue of Constraint");
 		 for(y=0; y<x; y++)
@@ -234,6 +234,7 @@ import com.sun.java.swing.table.*;
                                arraySimplex[y].getvalFunction()+"\t\t"+
 							   arraySimplex[y].getvalRestriction());
 	   }
+       break;
 
        case 4:
        methods.cls();
@@ -249,10 +250,7 @@ import com.sun.java.swing.table.*;
                                " - "+arraySimplex[y].getvalFunction()+"\t\t"+
 							   arraySimplex[y].getvalRestriction());
 	   }
-	   
-    }
-           
-}
+	   break;
 
   case 5:
     methods.cls();
@@ -263,19 +261,20 @@ import com.sun.java.swing.table.*;
 class data{
     int rows,columns;
 	int variable,valFuntion,valRestriction,numVariables;
-	object data[][]={
+	data[][]=
 	 {
 		 this.arraySimplex[y].getvariable,
 		 this.arraySimplex[y].getvalFunction,
 		 this.arraySimplex[y].getvalRestriction,
 		 this.arraySimplex[y].getnumVariables
 	 }
-	int i, j;
-	 for(i=0; i<data; i++){
-		 for(j=0; j<data[0].length; j++){
-		 System.out.println(data[i][j] + " ");
-		 System.out.println();
-		 }
+	int j;
+	for(i=0; i<data; i++){
+		 for(j=0; j<data[0].length; j++)
+         {
+            System.out.println(data[i][j] + " ");
+            System.out.println();
+         }
 		// Returns the number of columns
 		  public int getColumns() { 
 		   return( data[0].length );
@@ -295,7 +294,7 @@ class data{
         }
 	}
 
-    for ( int i=0; i<valRestriction; i++) {
+    for (int i=0; i<valRestriction; i++) {
         for( int y=0; y<numVariables; y++) {
             try{
                 data[i][y] = arraySimplex[y].getvalRestriction();
@@ -313,18 +312,17 @@ class data{
                 }
                 b + =  1;
             
-        if (numVariables (arraySimplex[y].getDesigualdad()) ==  2 ){
-            data[i][b] =  - 1 ;
-                data[i][b +  1 ] = 1;
-                b + = 2;
+                if (numVariables (arraySimplex[y].getDesigualdad()) ==  2 ){
+                    data[i][b] =  - 1 ;
+                    data[i][b +  1 ] = 1;
+                    b + = 2;
+                }
             }
-        }
             
         data[i][width - 2] = arraySimplex[y].getvalRestriction();	
         data[i][width - 1] = arraySimplex[y].getvalRestriction().getpromlado();
+        }
     }
-}
-
 //There are no negative values
 public  double  evidence(){
     double negative =  true;
@@ -395,7 +393,8 @@ public  void  simplificar(int filaPrivo, int columPrivote){
                 if(int j = 0; j < tabla[0].length; j++){
                     datos[i][j] = dats[filaPivo][j] * factor + data[i][j];
                 }
-            } else {
+            } 
+            else {
                 // si es valor negativo
                 factor double = data[i][columPrivo] * - 1;
                 for(int j = 0; j < data[0].length; j++){
@@ -405,24 +404,22 @@ public  void  simplificar(int filaPrivo, int columPrivote){
         }
     }
 }
-
-
 //Result of the table
 public  void  result(){
-    System.out.println("Numero de Variables:"+numVariables );
-    resultado = [numVariables];
+    System.out.println("Number of variables:"+numVariables );
+    result = [numVariables];
     int k = 0 ;
     for(int i = 0; i < data.length; i++){
         for(int j = 0; j < numVariables; j++){
             if(data[i][j] == 1){
-                resul[j] = data[i][data[0].length - 2];
+                result[j] = data[i][data[0].length - 2];
                 k = j;
             }
         }
     }
     promlado = data[0][data[0].length - 2];
     System.out.println(" ");
-    for (int i = 0; i < resultado.length; i++){
+    for (int i = 0; i<result.length; i++){
         System.out.println("x" + (i + 1) + "=" + result[i]);
     }
 }
@@ -436,12 +433,11 @@ public  void  imprimir (String title){
         for (int j = 0; j < data[0].length; j++){
             System.out.println(arraySimplex[y].getdatos(data[i][j]) +" ,");
         }
-        for (resultado<=-1    i++){
-            sistem.out.println("incorrecto");
     }
     System.out.println(" ");
+    }
 }
-
+    break;
 
 case 6:
 Metodos.cls();
@@ -492,6 +488,9 @@ System.out.println("\t"+menu[6]);
 	  
 	  System.out.println("End Date:");
 	  System.out.println("November 30, 21");
+      break;
 
-}		 
-     
+            } 
+        }
+     }
+}
