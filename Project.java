@@ -1,4 +1,5 @@
 /**
+ * @author: Blas Rosas Samuel
  * @author: Espinoza Vazquez Gabriela
  * @author: Hernandez Estudillo Itzel Mitzi
  * @author: Nava Avalos Betzabe Malinali
@@ -336,7 +337,7 @@ public  double  evidence(){
     return negative;
 }
 
-//Calcular valor privote
+//Calculate pivot value
 public  int  ColumPivote(){
     int index= 0;
     double less = data[0][index];
@@ -350,7 +351,7 @@ public  int  ColumPivote(){
     return index;
 }	
 
-//fila provote calcular
+//Row provote calculate
 public  int  rowsPrivote (int columPrivote){
     double values[] = [valRestriction - 1];
     int index[] = new int [valRestriction - 1];
@@ -377,12 +378,82 @@ public  int  rowsPrivote (int columPrivote){
 
 }
 
+// Make 1 the private value
+public  void  simplificacion ( int  filaPrivo , double  varPrivote ) {
+    for (int i = 0; i<data[0].length; i++){
+        data [filaPrivo][i] = data[filaPrivo][i]/varPrivote;
+    }
+}
+
+//Table
+public  void  simplificar(int filaPrivo, int columPrivote){
+    for(int i = 0; i<data.length; i++){
+        if(data[i][columPrivote]! = 0 && i ! = filaPrivo){
+            if (data[i][columPrivo]>0){
+                // si es valor positivo
+                factor double = data[i][columPrivo] * - 1;
+                if(int j = 0; j < tabla[0].length; j++){
+                    datos[i][j] = dats[filaPivo][j] * factor + data[i][j];
+                }
+            } else {
+                // si es valor negativo
+                factor double = data[i][columPrivo] * - 1;
+                for(int j = 0; j < data[0].length; j++){
+                    data[i][j] = data[filaPrivo][j] * factor +data[i][j];
+                }
+            }
+        }
+    }
+}
+
+
+//Result of the table
+public  void  result(){
+    System.out.println("Numero de Variables:"+numVariables );
+    resultado = [numVariables];
+    int k = 0 ;
+    for(int i = 0; i < data.length; i++){
+        for(int j = 0; j < numVariables; j++){
+            if(data[i][j] == 1){
+                resul[j] = data[i][data[0].length - 2];
+                k = j;
+            }
+        }
+    }
+    promlado = data[0][data[0].length - 2];
+    System.out.println(" ");
+    for (int i = 0; i < resultado.length; i++){
+        System.out.println("x" + (i + 1) + "=" + result[i]);
+    }
+}
+
+//Prited of table
+public  void  imprimir (String title){
+    System.out.println(" ");
+    System.out.println("->"+title);
+    for(int i = 0; i < data.length; i++){
+        System.out.println("  ");
+        for (int j = 0; j < data[0].length; j++){
+            System.out.println(arraySimplex[y].getdatos(data[i][j]) +" ,");
+        }
+        for (resultado<=-1    i++){
+            sistem.out.println("incorrecto");
+    }
+    System.out.println(" ");
+}
+
+
 case 6:
 Metodos.cls();
 System.out.println("\t"+menu[6]);  
 	System.out.printl("***TEAM MEMBERS***");
 	
-	  System.out.println("Members' names:");
+	  System.out.println("Members' names:")
+
+      System.out.println("Blas Rosas Samuel");
+	  System.out.println("Emails:");
+	  System.out.println("gaby09_espinoza06@hotmail.com");
+	  System.out.println("sblasr001@alumno.uaemex.mx");
 
 	  System.out.println("Espinoza Vazquez Gabriela");
 	  System.out.println("Emails:");
